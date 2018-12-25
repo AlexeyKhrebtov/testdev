@@ -1,7 +1,7 @@
 http://vuebnb.localhost/
 
-> [153] / 170 6 Chapter
-затерлись изменения до 171 страницы
+> [159] / 176 6 Chapter
+
 залить:
 ```
 git status

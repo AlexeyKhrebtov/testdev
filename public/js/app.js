@@ -12460,6 +12460,47 @@ __webpack_require__.r(__webpack_exports__);
 
 var model = JSON.parse(window.vuebnb_listing_model);
 model = Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["populateAmenitiesAndPrices"])(model);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('image-carousel', {
+  template: "\n        <div class=\"image-carousel\">\n            <img :src=\"images[index]\">\n            <div class=\"controls\">\n                <carousel-control dir=\"left\" @change-image=\"changeImage\"></carousel-control>\n                <carousel-control dir=\"right\" @change-image=\"changeImage\"></carousel-control>\n            </div>\n        </div>\n    ",
+  props: ['images'],
+  // регистрируем как свойства может принимать компонент
+  data: function data() {
+    return {
+      index: 0
+    };
+  },
+  components: {
+    'carousel-control': {
+      template: "<i :class=\"classes\" @click=\"clicked\"></i>",
+      props: ['dir'],
+      // регистрируем как свойства может принимать компонент
+      computed: {
+        classes: function classes() {
+          return 'carousel-control fa fa-2x fa-chevron-' + this.dir;
+        }
+      },
+      methods: {
+        clicked: function clicked() {
+          this.$emit('change-image', this.dir === 'left' ? -1 : 1);
+        }
+      }
+    }
+  },
+  methods: {
+    changeImage: function changeImage(val) {
+      // этот метод вызывается из дочернего через $emit - таким образом происходит передача события от потомка к родителю
+      var newVal = this.index + parseInt(val);
+
+      if (newVal < 0) {
+        this.index = this.images.length - 1;
+      } else if (newVal === this.images.length) {
+        this.index = 0;
+      } else {
+        this.index = newVal;
+      }
+    }
+  }
+});
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   data: Object.assign(model, {
