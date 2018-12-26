@@ -28,3 +28,16 @@ mix
 		open: false
 	})
 ;
+
+mix.options({
+	// отправляем стили из компонентов в отдельный файл
+	extractVueStyles: 'public/css/vue-style.css'
+});
+
+mix.webpackConfig({
+	resolve: {
+		alias: {
+			'vue$': 'vue/dist/vue.runtime.esm.js'
+		}
+	}
+});
