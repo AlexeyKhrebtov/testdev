@@ -1,6 +1,6 @@
 http://vuebnb.localhost/
 
-> [196] / 213 6 Chapter
+> [210] / 227, 7 Chapter
 
 залить:
 ```
