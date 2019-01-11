@@ -7,6 +7,11 @@ use App\Listing;
 
 class ListingController extends Controller
 {
+    public function get_home_web()
+    {
+        return view('app', ['model' => []]);
+    }
+
     private function add_image_urls($model, $id)
     {
         for($i = 1; $i <=4; $i++) {
