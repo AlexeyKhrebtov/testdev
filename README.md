@@ -1,13 +1,13 @@
 http://vuebnb.localhost/
 
-> [211] / 228, 7 Chapter
+> [257] / 274, 8 Chapter
 
 залить:
 ```
 git status
 git add .
 git status
-git commit -m 'comment'
+git commit -m '[257] / 274'
 git push origin master
 ```
 

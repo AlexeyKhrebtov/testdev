@@ -25,3 +25,5 @@ Route::get('listing/{listing}', function(Listing $listing) {
 */
 // То же самое
 Route::get('/listing/{listing}', 'ListingController@get_listing_api');
+
+Route::get('/', 'ListingController@get_home_api');
