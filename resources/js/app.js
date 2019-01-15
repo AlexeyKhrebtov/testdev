@@ -1,13 +1,16 @@
 import "core-js/fn/object/assign"; // Добавляем Polyfills - для получения доступа к новым API JS
 import Vue from 'vue';
 
-import router from './router'
+import router from './router';
+import store from './store';
+
 import App from './components/App.vue';
 
 var app = new Vue({
     el: '#app',
     render: h => h(App),
-    router
+    router,
+    store
 });
  
 /*

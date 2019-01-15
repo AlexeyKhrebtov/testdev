@@ -11,23 +11,16 @@
 </template>
 
 <script>
-	import routeMixin from '../route-mixin';
 	// Подключаем компонент для отображения списка предложений внутри группы (страны)
 	import ListingSummaryGroup from './ListingSummaryGroup.vue';
 	// Подключаем хелпер
 	import { groupByCountry } from '../helpers';	
 	
-	export default {
-		mixins: [ routeMixin ],
-		data() {
-			return { 
-				listing_groups: []
+	export default {		
+		computed: {
+			listing_groups() {
+				return groupByCountry(this.$store.state.listing_summaries);
 			}
-		},
-		methods: {
-			assignData({ listings }) {
-				this.listing_groups = groupByCountry(listings);
-			},
 		},
 		components: {
 			ListingSummaryGroup
