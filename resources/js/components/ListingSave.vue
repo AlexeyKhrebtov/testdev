@@ -13,7 +13,9 @@
 		props: [ 'id', 'button' ],
 		methods: {
 			toggleSaved() {
-				this.$store.commit('toggleSaved', this.id);
+				// Вместо мутации напрямую, вызываем действие на отправку аякса для обновления данных в базе,
+				// и только после обновляется хранилище.
+				this.$store.dispatch('toggleSaved', this.id);
 			}
 		},
 		computed: {

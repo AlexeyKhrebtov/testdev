@@ -3,6 +3,8 @@ import Vue from 'vue';
 
 import router from './router';
 import store from './store';
+import VueKonva from 'vue-konva';
+Vue.use(VueKonva);
 
 import App from './components/App.vue';
 

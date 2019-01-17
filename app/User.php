@@ -6,9 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Laravel\Passport\HasApiTokens; // для OAuth
+
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable; // HasApiTokens - для OAuth
 
     /**
      * The attributes that are mass assignable.
@@ -26,5 +28,14 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+    ];
+
+    /**
+     * Преобразование к базовым типам
+     * 
+     * @var array
+     */
+    protected $casts = [
+        'saved' => 'array'
     ];
 }

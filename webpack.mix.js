@@ -25,8 +25,10 @@ mix
 	.copy('resources/images', 'public/images')
 	.browserSync({
 		proxy: process.env.APP_URL,
+		host: 'vuebnb.localhost',
 		open: false
 	})
+
 ;
 
 mix.options({
